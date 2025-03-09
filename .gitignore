@@ -1,0 +1,7 @@
+__pycache__/
+*.log
+*.csv
+*.parquet
+.env
+credentials.json
+

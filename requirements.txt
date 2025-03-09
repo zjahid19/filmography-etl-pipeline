@@ -1,0 +1,63 @@
+alabaster==0.7.16
+astroid==3.2.3
+babel==2.17.0
+beautifulsoup4==4.13.3
+Bottleneck==1.3.6
+bs4==0.0.2
+certifi==2025.1.31
+charset-normalizer==3.4.1
+dill==0.3.8
+distro==1.9.0
+docutils==0.21.2
+et-xmlfile==1.1.0
+greenlet==3.1.1
+idna==3.10
+imagesize==1.4.1
+importlib_metadata==8.6.1
+install==1.3.5
+isort==5.13.2
+Jinja2==3.1.6
+lxml==5.1.0
+MarkupSafe==3.0.2
+mccabe==0.7.0
+mkl-fft @ file:///croot/mkl_fft_1695058164594/work
+mkl-random @ file:///croot/mkl_random_1695059800811/work
+mkl-service==2.4.0
+numexpr @ file:///croot/numexpr_1696515281613/work
+numpy @ file:///croot/numpy_and_numpy_base_1704311704800/work/dist/numpy-1.26.3-cp39-cp39-linux_x86_64.whl#sha256=93e7b9e5e2090dd03810e7c1b02cb077d3ef49fc713f0af531e0667375d9decb
+openpyxl==3.1.2
+packaging==24.2
+pandas==2.2.0
+platformdirs==4.2.2
+psycopg2-binary==2.9.10
+py4j @ file:///croot/py4j_1690918206326/work
+pyarrow==11.0.0
+Pygments==2.19.1
+pylint==3.2.5
+PyMuPDF==1.23.21
+PyMuPDFb==1.23.9
+PyPDF2==3.0.1
+pyspark @ file:///croot/pyspark_1690925060586/work
+python-dateutil @ file:///tmp/build/80754af9/python-dateutil_1626374649649/work
+python-docx==1.1.0
+pytz @ file:///croot/pytz_1695131579487/work
+requests==2.32.3
+six @ file:///tmp/build/80754af9/six_1644875935023/work
+snowballstemmer==2.2.0
+soupsieve==2.6
+Sphinx==7.4.7
+sphinxcontrib-applehelp==2.0.0
+sphinxcontrib-devhelp==2.0.0
+sphinxcontrib-htmlhelp==2.1.0
+sphinxcontrib-jsmath==1.0.1
+sphinxcontrib-qthelp==2.0.0
+sphinxcontrib-serializinghtml==2.0.0
+SQLAlchemy==2.0.38
+tabula==1.0.5
+tabula-py==2.9.0
+tomli==2.0.1
+tomlkit==0.13.0
+typing_extensions==4.9.0
+tzdata @ file:///croot/python-tzdata_1690578112552/work
+urllib3==2.3.0
+zipp==3.21.0

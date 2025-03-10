@@ -1,6 +1,6 @@
 """ This Module is resonsible for transfrming data into appropiate format as per the business requirment"""
 import pandas as pd
-import re
+from logs.etl_log import logger
 
 class DataFrameCreate:
     """ This class is responsible for creating a dataframe
@@ -130,6 +130,6 @@ class Transformer:
         time_transform_df = dataframe_clean.running_time_conversion(date_transform_df, 'running_time', 'running_time_in_minutes')
 
         
-        print('Transformation Completed!')
+        logger.info('Transformation Completed!')
         return time_transform_df
         

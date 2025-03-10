@@ -1,5 +1,6 @@
 import requests
 from bs4 import BeautifulSoup
+from logs.etl_log import logger
 
 
 class PageFetcher:
@@ -22,7 +23,7 @@ class PageFetcher:
             response.raise_for_status()  # Ensure valid response
             return response.content
         except requests.exceptions.RequestException as e:
-            print(f"Error fetching page {url}: {e}")
+            logger.error(f"Error fetching page {url}: {e}")
             return None
 
 
@@ -94,7 +95,7 @@ class MovieDetailsExtractor:
                                 movie_details[movie_header] = movie_header_data
                                 # print(f'{movie_header} ---> {movie_header_data}')
                     except Exception as e:
-                        print(f"Exception occurred for the movie {movie_url}: {e}")
+                        logger.error(f"Exception occurred for the movie {movie_url}: {e}")
         
         return movie_details
 
@@ -128,7 +129,7 @@ class MovieDetailsFetcher:
             movie_details = MovieDetailsExtractor.extract_movie_details(movie_url)
             if movie_details:
                 self.movies_detail_list.append(movie_details)
-        print('Extraction Completed')                
+        logger.info('Extraction Completed')                
         
         return self.movies_detail_list
 

@@ -16,7 +16,7 @@ After forking, clone the repository to your local machine:
 ```bash
 git clone https://github.com/your-username/filmography-etl-pipeline.git
 ```
-###  **Change directory***
+###  **Change directory**
 Change directory to your project directory using cd linux command. 
 ```bash
 cd filmography-etl-pipeline
@@ -37,7 +37,7 @@ git add .
 git commit -m "Commit message"
 ```
 
-### **Push changed to fork**
+### **Push changes to fork**
 push yout changes to your fork
 ```bash
 git push origin master

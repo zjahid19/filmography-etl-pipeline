@@ -2,6 +2,7 @@
 from sqlalchemy import create_engine, text
 import pandas as pd
 import json
+from logs.etl_log import logger
 
 class Connection:
     def __init__(self,config_file):
@@ -29,7 +30,7 @@ class Connection:
                 print('Connection Successfull')
                 return connection_object
         except Exception as e:
-            print('Connection Filed due Database issue',e)
+            logger.error('Connection Filed due Database issue',e)
 
 class DataFrameLoading:
     """ This class is responsible for executing SQL query"""
@@ -43,7 +44,7 @@ class DataFrameLoading:
             self.dataframe.to_sql(self.table_name, self.connection_object, if_exists="replace", index=False)
             return True
         except Exception as e:
-            print(f'There is an Error while loadin the data into {self.table_name}')
+            logger.error(f'There is an Error while loadin the data into {self.table_name}')
 
 
 
@@ -60,4 +61,4 @@ class DataLoading:
 
         dataframe_loading = DataFrameLoading(connection_object, self.result_df, "movies_details")
         if dataframe_loading.data_load():
-            print('Data Loading completed successfully for table movies_details')
+            logger.info('Data Loading completed successfully for table movies_details')

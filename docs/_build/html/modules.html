@@ -1,0 +1,255 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Modules Documentation &#8212; etl  documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Welcome to etl’s documentation!" href="index.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="module-__init__">
+<span id="modules-documentation"></span><h1>Modules Documentation<a class="headerlink" href="#module-__init__" title="Permalink to this heading">¶</a></h1>
+<span class="target" id="module-extraction_oop"></span><dl class="py class">
+<dt class="sig sig-object py" id="extraction_oop.MovieDetailsExtractor">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">extraction_oop.</span></span><span class="sig-name descname"><span class="pre">MovieDetailsExtractor</span></span><a class="headerlink" href="#extraction_oop.MovieDetailsExtractor" title="Permalink to this definition">¶</a></dt>
+<dd><p>This class is responsible for extracting details from each movie page.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="extraction_oop.MovieDetailsExtractor.extract_movie_details">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">extract_movie_details</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">movie_url</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="headerlink" href="#extraction_oop.MovieDetailsExtractor.extract_movie_details" title="Permalink to this definition">¶</a></dt>
+<dd><p>This static methode responsible for extracting required movie information from each movie url from movies list</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>movie_url (str): movie url</p>
+</dd>
+<dt>Returns:</dt><dd><p>movie_details (dict): This will contains all required information for each movie.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="extraction_oop.MovieDetailsFetcher">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">extraction_oop.</span></span><span class="sig-name descname"><span class="pre">MovieDetailsFetcher</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">base_url</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filmography_url</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#extraction_oop.MovieDetailsFetcher" title="Permalink to this definition">¶</a></dt>
+<dd><p>This class ties everything together to fetch movies and their details.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="extraction_oop.MovieDetailsFetcher.fetch_movie_details">
+<span class="sig-name descname"><span class="pre">fetch_movie_details</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span></span></span><a class="headerlink" href="#extraction_oop.MovieDetailsFetcher.fetch_movie_details" title="Permalink to this definition">¶</a></dt>
+<dd><p>This methode is responsible for getting all movies details as list.</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>moviles_detail_list (list) : This will contain list of all movies details dictonary</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="extraction_oop.MovieParser">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">extraction_oop.</span></span><span class="sig-name descname"><span class="pre">MovieParser</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">base_url</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#extraction_oop.MovieParser" title="Permalink to this definition">¶</a></dt>
+<dd><p>This class is responsible for parsing movie links from a given filmography page.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="extraction_oop.MovieParser.parse_movies">
+<span class="sig-name descname"><span class="pre">parse_movies</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filmography_url</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span></span></span><a class="headerlink" href="#extraction_oop.MovieParser.parse_movies" title="Permalink to this definition">¶</a></dt>
+<dd><p>Extract required details from filmography url and create a list</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>filmography_url (str): This is Filmography url where we need to hit the request.</p>
+</dd>
+<dt>Returns:</dt><dd><p>movies (list): Extract url for each movie and create a list after concatinating with base url..</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="extraction_oop.PageFetcher">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">extraction_oop.</span></span><span class="sig-name descname"><span class="pre">PageFetcher</span></span><a class="headerlink" href="#extraction_oop.PageFetcher" title="Permalink to this definition">¶</a></dt>
+<dd><p>This class is responsible for fetching the content from a given URL.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="extraction_oop.PageFetcher.fetch_page">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">fetch_page</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">url</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bytes</span></span></span><a class="headerlink" href="#extraction_oop.PageFetcher.fetch_page" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fetch the page content from the given URL.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>url (string) : Target url to hit the request.</p>
+</dd>
+<dt>Returns:</dt><dd><p>response.content (Byte) : Response from the request</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<span class="target" id="module-load"></span><p>This module is responsible for setting connection with postgress and loading dataframe in Database Table.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="load.DataFrameLoading">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">load.</span></span><span class="sig-name descname"><span class="pre">DataFrameLoading</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">connection_object</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dataframe</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">table_name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#load.DataFrameLoading" title="Permalink to this definition">¶</a></dt>
+<dd><p>This class is responsible for executing SQL query</p>
+</dd></dl>
+
+<span class="target" id="module-main"></span><p>main.py</p>
+<p>This module provides functionality to Execute Extract, Transform and Load Process in Sequence.</p>
+<p>Author: Jahid Sheikh
+Date: 2025-03-09</p>
+<span class="target" id="module-transformer_oop"></span><p>This Module is resonsible for transfrming data into appropiate format as per the business requirment</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="transformer_oop.DataFrameCreate">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">transformer_oop.</span></span><span class="sig-name descname"><span class="pre">DataFrameCreate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">movies_details_list</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#transformer_oop.DataFrameCreate" title="Permalink to this definition">¶</a></dt>
+<dd><p>This class is responsible for creating a dataframe</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="transformer_oop.DataFrameCreate.create_dataframe">
+<span class="sig-name descname"><span class="pre">create_dataframe</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#transformer_oop.DataFrameCreate.create_dataframe" title="Permalink to this definition">¶</a></dt>
+<dd><p>This methode will create and return a dataframe.</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>movies_dataframe_raw (dataframe): This dataframe contain all the movie information.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="transformer_oop.DataFrameStructureClean">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">transformer_oop.</span></span><span class="sig-name descname"><span class="pre">DataFrameStructureClean</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">movies_dataframe_raw</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#transformer_oop.DataFrameStructureClean" title="Permalink to this definition">¶</a></dt>
+<dd><p>This Class is responsible for performing DDL operations on dataframe as per the business requirment</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="transformer_oop.DataFrameStructureClean.convert_cols_lower">
+<span class="sig-name descname"><span class="pre">convert_cols_lower</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#transformer_oop.DataFrameStructureClean.convert_cols_lower" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>this methode is responsible for converting all the columns into lower case</dt><dd><p>and replace the space with undescore value</p>
+</dd>
+<dt>Returns:</dt><dd><p>movies_dataframe_raw (DataFrame): DataFrame with all columns in lowercase.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="transformer_oop.DataFrameStructureClean.date_transformation">
+<span class="sig-name descname"><span class="pre">date_transformation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cleaned_dataframe</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">column_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">new_column</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#transformer_oop.DataFrameStructureClean.date_transformation" title="Permalink to this definition">¶</a></dt>
+<dd><p>This Methode perform transformation on release_date Column</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="transformer_oop.DataFrameStructureClean.rowlist_to_delimited">
+<span class="sig-name descname"><span class="pre">rowlist_to_delimited</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cleaned_dataframe</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#transformer_oop.DataFrameStructureClean.rowlist_to_delimited" title="Permalink to this definition">¶</a></dt>
+<dd><p>This Method iterate over each column and if there is any list within the column 
+convert that list into comma delimited value</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="transformer_oop.DataFrameStructureClean.transformation_on_row">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">transformation_on_row</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">row</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Series</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#transformer_oop.DataFrameStructureClean.transformation_on_row" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>This is Static methode takes argument as row and convert each column list into delimited value</dt><dd><p>and replace all column NaN values with business default value.</p>
+</dd>
+<dt>Args:</dt><dd><p>row (Series): Contain Each column value from DataFrame</p>
+</dd>
+<dt>Returns:</dt><dd><p>row (Series): Returns modified Series.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="transformer_oop.Transformer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">transformer_oop.</span></span><span class="sig-name descname"><span class="pre">Transformer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">movies_details_list</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#transformer_oop.Transformer" title="Permalink to this definition">¶</a></dt>
+<dd><p>This class is responsible for organising classes with transformer module</p>
+</dd></dl>
+
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">etl</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Modules Documentation</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="index.html" title="previous chapter">Welcome to etl’s documentation!</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2025, Jahid.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 5.0.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/modules.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

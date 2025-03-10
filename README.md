@@ -29,3 +29,6 @@ venv\Scripts\activate
 source venv/bin/activate
 
 pip install -r requirements.txt
+```
+
+## **for more detail See documentation here filmography-etl-pipeline/docs/html/index.html**

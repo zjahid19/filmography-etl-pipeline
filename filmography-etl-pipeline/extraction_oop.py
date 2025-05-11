@@ -1,5 +1,6 @@
 import requests
 from bs4 import BeautifulSoup
+from detail_log import logger
 
 
 class PageFetcher:
@@ -22,7 +23,7 @@ class PageFetcher:
             response.raise_for_status()  # Ensure valid response
             return response.content
         except requests.exceptions.RequestException as e:
-            print(f"Error fetching page {url}: {e}")
+            logger.error(f'Failed to Established connection with given {url}')
             return None
 
 
@@ -86,15 +87,18 @@ class MovieDetailsExtractor:
                 for index, item in enumerate(main_body.find_all(name='tr')):
                     try:
                         if index == 0:  # First row contains the movie name
+                            logger.info(f'Extracting information for movie - {item.get_text(strip=True)}')
                             movie_details['movie_name'] = item.get_text(strip=True)
                         elif index > 1:  # Skipping rows that are not useful
                             if item.find(name='th') and item.find(name='td'):
                                 movie_header = item.find(name='th').get_text(strip=True)
                                 movie_header_data = [i.get_text(strip=True) for i in item.find_all(name='td')]
                                 movie_details[movie_header] = movie_header_data
+                        # logger.info(f'Movie details - {movie_details}')
                                 # print(f'{movie_header} ---> {movie_header_data}')
                     except Exception as e:
-                        print(f"Exception occurred for the movie {movie_url}: {e}")
+                        logger.error(f'Error occurred for the movie {movie_url}: {e}')
+                        
         
         return movie_details
 
@@ -127,8 +131,7 @@ class MovieDetailsFetcher:
         for movie_url in self.movies:
             movie_details = MovieDetailsExtractor.extract_movie_details(movie_url)
             if movie_details:
-                self.movies_detail_list.append(movie_details)
-        print('Extraction Completed')                
+                self.movies_detail_list.append(movie_details)             
         
         return self.movies_detail_list
 

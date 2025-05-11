@@ -1,6 +1,7 @@
 """ This Module is resonsible for transfrming data into appropiate format as per the business requirment"""
 import pandas as pd
 import re
+from detail_log import logger
 
 class DataFrameCreate:
     """ This class is responsible for creating a dataframe
@@ -44,6 +45,7 @@ class DataFrameStructureClean:
         """
         
         # converting columns into lowercase
+        logger.info('Transform-1 Conveting column names to lower case')
         self.movies_dataframe_raw.columns = self.movies_dataframe_raw.columns.str.lower()
         # creplacing space with underscore
         self.movies_dataframe_raw.columns = self.movies_dataframe_raw.columns.str.replace(' ','_')
@@ -71,7 +73,7 @@ class DataFrameStructureClean:
     def rowlist_to_delimited(self,cleaned_dataframe):
         """ This Method iterate over each column and if there is any list within the column 
         convert that list into comma delimited value"""
-        
+        logger.info('Transform-2 Conveting list within column to comma separated value')
         for col in cleaned_dataframe.columns:
             cleaned_dataframe[col] = cleaned_dataframe[col].apply(self.transformation_on_row) 
         return cleaned_dataframe
@@ -89,12 +91,14 @@ class DataFrameStructureClean:
     
     def date_transformation(self,cleaned_dataframe,column_name,new_column):
         """ This Methode perform transformation on release_date Column"""
+        logger.info('Transform-3 Uniforming all date values to one format')
         cleaned_dataframe[new_column] = cleaned_dataframe[column_name].apply(self.date_ransformation_lamda)
         return cleaned_dataframe
 
     
 
     def running_time_ransformation_lamda(self, column_value):
+        
         if column_value == 'Data Not Available':
             column_value =  120
         elif len(column_value.split(' ')) == 2:
@@ -105,11 +109,20 @@ class DataFrameStructureClean:
         return column_value
 
     def running_time_conversion(self, cleaned_dataframe, column_name, new_column):
+        logger.info('Transform-4 Conveting running time column from hours to minutes')
         cleaned_dataframe[new_column] = cleaned_dataframe[column_name].apply(self.running_time_ransformation_lamda)
+        return cleaned_dataframe
+    
+    def drop_duplicate(self,time_transform_df):
+        initial_count = len(time_transform_df)
+        logger.info('Transform-5 Dropping duplicate rows from dataframe') 
+        dataframe_unique = time_transform_df.drop_duplicates(keep='last')
+        logger.warning(f'{initial_count - len(dataframe_unique)} duplicate records found')
+        return dataframe_unique
 
         
 
-        return cleaned_dataframe
+        
         
     
 
@@ -123,13 +136,20 @@ class Transformer:
     def cleaned_dataframe(self):
         dataframe_create = DataFrameCreate(self.movies_details_list)
         movies_dataframe_cleaned = dataframe_create.create_dataframe()
+        # Initial status of Dataframe
+        logger.info(f'Number of rows in DataFrame - {len(movies_dataframe_cleaned)}')
+        logger.info(f'Columns present in DataFrame - {list(movies_dataframe_cleaned.columns)}')
         dataframe_clean = DataFrameStructureClean(movies_dataframe_cleaned)
         cleaned_dataframe = dataframe_clean.convert_cols_lower()
+        filter_condition = cleaned_dataframe['movie_name'] == 'Holi'
+        print(cleaned_dataframe.loc[filter_condition])
         list_to_delimited = dataframe_clean.rowlist_to_delimited(cleaned_dataframe)
+        filter_condition = list_to_delimited['movie_name'] == 'Holi'
+        print(list_to_delimited.loc[filter_condition])
         date_transform_df = dataframe_clean.date_transformation(list_to_delimited, 'release_date', 'new_release_date')
         time_transform_df = dataframe_clean.running_time_conversion(date_transform_df, 'running_time', 'running_time_in_minutes')
+        uniq_record_dataframe = dataframe_clean.drop_duplicate(time_transform_df)
 
         
-        print('Transformation Completed!')
-        return time_transform_df
+        return uniq_record_dataframe
         

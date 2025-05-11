@@ -14,35 +14,32 @@ greenlet==3.1.1
 idna==3.10
 imagesize==1.4.1
 importlib_metadata==8.6.1
-install==1.3.5
 isort==5.13.2
 Jinja2==3.1.6
 lxml==5.1.0
 MarkupSafe==3.0.2
 mccabe==0.7.0
-mkl-fft @ file:///croot/mkl_fft_1695058164594/work
-mkl-random @ file:///croot/mkl_random_1695059800811/work
-mkl-service==2.4.0
-numexpr @ file:///croot/numexpr_1696515281613/work
-numpy @ file:///croot/numpy_and_numpy_base_1704311704800/work/dist/numpy-1.26.3-cp39-cp39-linux_x86_64.whl#sha256=93e7b9e5e2090dd03810e7c1b02cb077d3ef49fc713f0af531e0667375d9decb
+mkl-service
+numexpr
+numpy
 openpyxl==3.1.2
 packaging==24.2
 pandas==2.2.0
 platformdirs==4.2.2
 psycopg2-binary==2.9.10
-py4j @ file:///croot/py4j_1690918206326/work
+py4j
 pyarrow==11.0.0
 Pygments==2.19.1
 pylint==3.2.5
 PyMuPDF==1.23.21
 PyMuPDFb==1.23.9
 PyPDF2==3.0.1
-pyspark @ file:///croot/pyspark_1690925060586/work
-python-dateutil @ file:///tmp/build/80754af9/python-dateutil_1626374649649/work
+pyspark
+python-dateutil
 python-docx==1.1.0
-pytz @ file:///croot/pytz_1695131579487/work
+pytz 
 requests==2.32.3
-six @ file:///tmp/build/80754af9/six_1644875935023/work
+six
 snowballstemmer==2.2.0
 soupsieve==2.6
 Sphinx==7.4.7
@@ -58,6 +55,6 @@ tabula-py==2.9.0
 tomli==2.0.1
 tomlkit==0.13.0
 typing_extensions==4.9.0
-tzdata @ file:///croot/python-tzdata_1690578112552/work
+tzdata
 urllib3==2.3.0
 zipp==3.21.0

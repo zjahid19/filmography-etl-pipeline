@@ -3,7 +3,7 @@ import logging
 # creating logging object
 logger = logging.getLogger(__name__)
 
-# seting log level 
+# seting log level
 logger.setLevel(logging.INFO)
 
 # creating string format
@@ -19,4 +19,3 @@ handler.setFormatter(formatter)
 
 # adding handller to logger
 logger.addHandler(handler)
-
